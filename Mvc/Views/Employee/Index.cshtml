@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Mvc.Models.mvcEmployeeModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br/>
+<p>
+    <a href="@Url.Action("AddOrEdit" , "Employee")"class="btn btn-default"><i class="fa fa-plus"></i> Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Serial No.</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>Actions</th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifedOn)
+            </th>
+        </tr>
+    </thead>
+
+    @{int index = 1;}
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @index
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Position)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Age)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Salary)
+    </td>
+    <td>
+        <a href="@Url.Action("AddOrEdit" , "Employee", new {id = item.EmployeeID})" class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
+
+        <a onclick="Delete(@item.EmployeeID)" class="btn btn-default"><i class="fa fa-trash"></i> Delete</a>
+    </td>
+    <td>
+        @Convert.ToString(string.Format("{0:dd-MMM-yyyy HH:mm}", item.CreatedOn))
+
+    </td>
+    <td>
+        @Convert.ToString(string.Format("{0:dd-MMM-yyyy HH:mm}", item.ModifedOn))
+    </td>
+
+</tr>
+        index++;
+    }
+
+</table>
+
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["successMessage"]'
+            if (successMessage == 'Saved Successfully')
+            {
+                alertify.success(successMessage+'.');
+                return false;
+            }
+            else if (successMessage == 'Conflict') {
+                alertify.error('Employee already exits!!');
+                return false;
+            }
+            else if (successMessage == 'Updated Successfully') {
+                alertify.success('Updated Successfully.');
+                return false;
+            }
+            else if (successMessage == 'Deleted Successfully') {
+                alertify.success('Deleted Successfully.');
+                return false;
+            }
+        });
+        function Delete(id) {
+            alertify.confirm('Confirmation', 'Are you sure to delete this record? ', function () {
+                window.location.href = '@Url.Action("Delete","Employee")/' + id;
+            }, null);
+        }
+        </script>             
+        }
+
+

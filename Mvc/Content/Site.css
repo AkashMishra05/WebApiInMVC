@@ -1,0 +1,134 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 340px;
+}
+
+.field-validation-error {
+    color: #b94a48;
+    font-size: 18px;
+    margin-left: 50px;
+}
+.field-validation-valid{
+    display: none;
+}
+input.input-validation-error {
+    border: 1px solid #b94a48;
+    margin-left: 50px;
+}
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+    margin-left: 50px;
+}
+.validation-summary-errors{
+    color:#b94a48;
+}
+.validation-summary-valid{
+    display:none;
+}
+input, textarea {
+    display: block;
+    height: 100%;
+    padding: 5px 5px;
+    background: none;
+    border: 1px solid #a0b3b0;
+    color: #fff;
+    border-radius: 0;
+    transition: border-color .25s ease, box-shadow .25s ease;
+    margin:5px;
+}
+.button1 {
+    border: 1px solid #fff;
+    outline: none;
+    border-radius: 7px;
+    background-color: forestgreen;
+    font-weight: 400;
+    color: #FFFFFF;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2px;
+    width: 90px;
+    margin-bottom: 20px;
+}
+.button2 {
+    border: 1px solid #fff;
+    outline: none;
+    border-radius: 7px;
+    background-color: red;
+    font-weight: 400;
+    color: #FFFFFF;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2px;
+    width: 90px;
+    margin-bottom: 20px;
+}
+.button3 {
+    border: 1px solid #fff;
+    outline: none;
+    border-radius: 7px;
+    background-color: blue;
+    font-weight: 400;
+    color: #FFFFFF;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2px;
+    margin-left:15px;
+    width: 90px;
+    justify-content: center;
+    margin-bottom:20px;
+}
+.form-body{
+    background: rgba(19,35,47,0.9);
+    padding: 50px , 50px;
+    max-width:600px;
+    max-block-size:fit-content;
+    justify-content:center; 
+    margin:30px auto;
+    box-shadow: 0 10px 10px 4px rgba(19,35,47,0.3);
+}
+body{
+    background:#fff;
+}
+label {
+    color: #fff;
+    font-size: 22px;
+    margin-left: 50px;
+}
+.form-body input:focus{
+    outline:none;
+
+}
+.form-body input, textarea{
+    font-size:20px;
+    margin-left:50px;
+    
+}
+.table-heading{
+    background-color: #2a3843;  
+    color:white;
+}
+.add-new{
+    background-color:#1ab188;
+}
+
+
